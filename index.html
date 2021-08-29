@@ -1,0 +1,49 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Etch-a-Sketch</title>
+  <meta name="description" content="Etch-a-Sketch">
+  <meta name="author" content="Josh Ford">
+
+  <meta property="og:title" content="Etch-a-Sketch">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www..com/text/">
+  <meta property="og:description" content="Etch-a-Sketch">
+  <meta property="og:image" content="image.png">
+
+  <link rel="icon" href="images/favicon.ico">
+  <link rel="icon" href="images/favicon-32x32.png" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="images/favicon-32x32.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="styles/style.css">
+
+</head>
+
+<body>
+  <div class="game-container">
+    <h1>WELCOME TO ETCH-A-SKETCH</h1>
+    <div id="sketch-grid"></div>
+    <div class="options-container">
+      <button class="clear-screen button-standard">Clear Screen</button>
+      <button class="change-color button-standard">Change Color</button>
+      <div class="grid-size">
+        <form>
+          <label for="grid-input" class="grid-input-text">Enter Grid Size (max 100)</label>
+          <input type="text" id="grid-input" name="grid-input" placeholder="16" size="5">
+          <input type="button" value="Go" class="go button-standard" onclick="makeGrid()">
+        </form>
+      </div>
+    </div>
+  </div>
+  
+  <script src="js/scripts.js"></script>
+</body>
+</html>
