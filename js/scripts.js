@@ -1,16 +1,37 @@
 const sketchGrid = document.getElementById('sketch-grid')
 const clearScreenBtn = document.getElementById('clear-screen');
 const changeColorBtn = document.getElementById('change-color');
-const gridSize = document.getElementById('grid-input');
-const goBtn = document.getElementById('go');
+const goBtn = document.getElementById('grid-button')
+const cell = document.getElementsByClassName("grid-cell")
+let gridSize = document.getElementById('grid-size')
+
+function gridCheck() {
+    return (gridSize.value === "" || gridSize.value > 100) 
+}
 
 function makeGrid(gridSize) {
-    sketchGrid.style.setProperty('--grid-rows', gridSize);
-    sketchGrid.style.setProperty('--grid-cols', gridSize);
-    for (i = 0; i < gridSize*gridSize; i++) {
-        let cell = document.createElement('div');
-        sketchGrid.appendChild(cell).className = "grid-cell";
-    };
+    if (!gridCheck()) {
+        resetGrid()
+        sketchGrid.style.setProperty('--grid-rows', gridSize.value);
+        sketchGrid.style.setProperty('--grid-cols', gridSize.value);
+        for (i = 0; i < gridSize.value*gridSize.value; i++) {
+            let cell = document.createElement('div');
+            sketchGrid.appendChild(cell).className = "grid-cell";
+            sketchGrid.appendChild(cell).id = i+1;
+        };
+        for (i = 0; i < cell.length; i++) {
+            cell[i].addEventListener('mouseover', 
+            e => e.target.classList.add('color-cell')
+        )
+        }
+    } else {
+        gridSize.classList.add('grid-size-error')
+    }
 };
 
-makeGrid(16)
+function resetGrid() {
+    gridSize.classList.remove('grid-size-error')
+    while (sketchGrid.hasChildNodes()) {
+        sketchGrid.removeChild(sketchGrid.lastChild);
+    } 
+}
