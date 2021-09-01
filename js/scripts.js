@@ -35,3 +35,9 @@ function resetGrid() {
         sketchGrid.removeChild(sketchGrid.lastChild);
     } 
 }
+
+function clearScreen() {
+    for (i = 0; i < cell.length; i++) {
+        cell[i].classList.remove('color-cell')
+    }
+}
